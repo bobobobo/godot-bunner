@@ -1,0 +1,28 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/sprites/water1.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/water7.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/water6.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/water0.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/water5.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/water4.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/water2.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/water3.png" type="Texture" id=8]
+[ext_resource path="res://src/row/Row.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/row/ActiveRow.gd" type="Script" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Water" instance=ExtResource( 9 )]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 10 )
+
+[node name="Sprite" parent="." index="1"]
+frames = SubResource( 1 )

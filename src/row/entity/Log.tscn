@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/sprites/log0.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/log1.png" type="Texture" id=2]
+[ext_resource path="res://src/row/entity/Log.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 30, 18 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 56, 18 )
+
+[node name="Log" type="Area2D"]
+z_index = 1
+collision_layer = 8
+collision_mask = 32
+script = ExtResource( 3 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+centered = false
+offset = Vector2( 0, -60 )
+
+[node name="CollisionShapeSmall" type="CollisionShape2D" parent="."]
+position = Vector2( 50, -30 )
+shape = SubResource( 3 )
+
+[node name="CollisionShapeLarge" type="CollisionShape2D" parent="."]
+position = Vector2( 76, -30 )
+shape = SubResource( 2 )
+[connection signal="area_entered" from="." to="." method="_on_Log_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_Log_area_exited"]

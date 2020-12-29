@@ -1,0 +1,32 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://assets/sprites/grass5.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/grass1.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/grass2.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/grass4.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/grass13.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/grass15.png" type="Texture" id=6]
+[ext_resource path="res://src/row/Row.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sprites/grass8.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/grass6.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/grass7.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/grass9.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/grass12.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/grass3.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/grass11.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/grass14.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/grass0.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/grass10.png" type="Texture" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 16 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Grass" instance=ExtResource( 7 )]
+
+[node name="Sprite" parent="." index="0"]
+frames = SubResource( 1 )

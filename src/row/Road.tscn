@@ -1,0 +1,24 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/sprites/road2.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/road3.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/road4.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/road5.png" type="Texture" id=4]
+[ext_resource path="res://src/row/Row.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sprites/road0.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/road1.png" type="Texture" id=7]
+[ext_resource path="res://src/row/ActiveRow.gd" type="Script" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Road" instance=ExtResource( 5 )]
+script = ExtResource( 8 )
+
+[node name="Sprite" parent="." index="1"]
+frames = SubResource( 1 )
