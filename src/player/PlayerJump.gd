@@ -1,5 +1,13 @@
 extends StateMachine.State
 
+const FRAMES = { 
+        Vector2.ZERO: 0,
+        Vector2.UP: 0,
+        Vector2.DOWN: 2,
+        Vector2.LEFT: 4,
+        Vector2.RIGHT: 1
+    }
+
 var timer = 0
 
 func _on_enter(_previous):
@@ -17,11 +25,5 @@ func _physics_process(delta):
     target.position.x = max(16, min(480 - 16, target.position.x))
 
 func _set_direction_frame(dir):
-    if dir == Vector2.UP:
-        target.sprite.set_frame(0)
-    elif dir == Vector2.DOWN:
-        target.sprite.set_frame(2)
-    elif dir == Vector2.LEFT:
-        target.sprite.set_frame(4)
-    elif dir == Vector2.RIGHT:
-        target.sprite.set_frame(1)
+    target.sprite.set_frame(FRAMES[dir])
+

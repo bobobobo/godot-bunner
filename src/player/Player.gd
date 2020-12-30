@@ -12,19 +12,21 @@ var direction = Vector2.ZERO
 var _on_water = 0
 var _car_hit = 0
 var _train_hit = 0
-var dead = false
+
 var state_machine = StateMachine.new()
 
 onready var sprite = $Sprite
 onready var ray = $RayCast2D
 
+signal died
+
 func _ready():
     state_machine.target = self
     state_machine.add_state("idle", PlayerIdle.new())
     state_machine.add_state("jump", PlayerJump.new())
-    state_machine.transition("idle")
     state_machine.add_state("dead/splash", PlayerDeadSplash.new())
     state_machine.add_state("dead/splat", PlayerDeadSplat.new())
+    state_machine.transition("idle")
 
 
 func _unhandled_input(event):
@@ -63,3 +65,6 @@ func _on_Player_area_exited(area):
         _car_hit -= 1     
     if area.get_collision_layer_bit(6):
         _train_hit -= 1
+
+func trigger_death():
+    emit_signal("died")

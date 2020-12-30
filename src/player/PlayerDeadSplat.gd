@@ -3,7 +3,7 @@ extends StateMachine.State
 func _on_enter(_previous):
     target.sprite.set_animation("splat")
     _set_direction_frame(target.direction)
-    target.dead = true
+    target.trigger_death()
 
 func _set_direction_frame(dir):
     if dir == Vector2.UP:

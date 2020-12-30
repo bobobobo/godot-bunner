@@ -1,12 +1,40 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/level/Level.gd" type="Script" id=1]
-[ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sprites/gameover.png" type="Texture" id=2]
+[ext_resource path="res://src/Game.gd" type="Script" id=3]
+[ext_resource path="res://src/GameOver.gd" type="Script" id=4]
+[ext_resource path="res://assets/sprites/start1.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/start2.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/start0.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/title.png" type="Texture" id=8]
+[ext_resource path="res://src/TitleScreen.gd" type="Script" id=9]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 400 )
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="TitleScreen" type="Node2D" parent="."]
+z_index = 5
+script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="TitleScreen"]
+texture = ExtResource( 8 )
+centered = false
+
+[node name="StartSprite" type="AnimatedSprite" parent="TitleScreen"]
+position = Vector2( 240, 578.789 )
+frames = SubResource( 2 )
 
 [node name="Level" type="Node2D" parent="."]
 script = ExtResource( 1 )
@@ -25,4 +53,13 @@ shape = SubResource( 1 )
 
 [node name="Rows" type="Node2D" parent="Level"]
 
-[node name="Player" parent="Level" instance=ExtResource( 2 )]
+[node name="GameOver" type="Sprite" parent="."]
+pause_mode = 2
+visible = false
+z_index = 6
+texture = ExtResource( 2 )
+centered = false
+script = ExtResource( 4 )
+[connection signal="game_started" from="TitleScreen" to="." method="_on_TitleScreen_game_started"]
+[connection signal="game_over" from="Level" to="." method="_on_Level_game_over"]
+[connection signal="game_restart" from="GameOver" to="." method="_on_GameOver_game_restart"]
