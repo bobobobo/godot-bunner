@@ -27,7 +27,7 @@ func _unhandled_input(event):
 func move(dir):
     target.ray.cast_to = dir * 40
     target.ray.force_raycast_update()
-    if !target.ray.is_colliding():
+    if !target.ray.is_colliding() and target.position.y > 0:
         target.direction = dir
         state_machine.transition("jump")
 

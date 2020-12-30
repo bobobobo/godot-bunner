@@ -12,7 +12,7 @@ var direction = Vector2.ZERO
 var _on_water = 0
 var _car_hit = 0
 var _train_hit = 0
-
+var dead = false
 var state_machine = StateMachine.new()
 
 onready var sprite = $Sprite
@@ -67,4 +67,5 @@ func _on_Player_area_exited(area):
         _train_hit -= 1
 
 func trigger_death():
+    dead = true
     emit_signal("died")

@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://src/level/Level.gd" type="Script" id=1]
+[ext_resource path="res://src/level/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/gameover.png" type="Texture" id=2]
 [ext_resource path="res://src/Game.gd" type="Script" id=3]
 [ext_resource path="res://src/GameOver.gd" type="Script" id=4]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/sprites/start0.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/title.png" type="Texture" id=8]
 [ext_resource path="res://src/TitleScreen.gd" type="Script" id=9]
+[ext_resource path="res://src/level/Level.gd" type="Script" id=10]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -37,7 +38,7 @@ position = Vector2( 240, 578.789 )
 frames = SubResource( 2 )
 
 [node name="Level" type="Node2D" parent="."]
-script = ExtResource( 1 )
+script = ExtResource( 10 )
 
 [node name="Walls" type="Area2D" parent="Level"]
 collision_layer = 17
@@ -52,6 +53,26 @@ position = Vector2( 500, 400 )
 shape = SubResource( 1 )
 
 [node name="Rows" type="Node2D" parent="Level"]
+
+[node name="HUD" type="Node2D" parent="Level"]
+z_index = 4
+script = ExtResource( 1 )
+
+[node name="CurrentScore" type="Label" parent="Level/HUD"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore" type="Label" parent="Level/HUD"]
+margin_left = 480.0
+margin_right = 480.0
+margin_bottom = 18.1441
+grow_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GameOver" type="Sprite" parent="."]
 pause_mode = 2
