@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/honk2.wav-ecdf6839c6b046ffea4c0a93f7ede1ac.sample"
+
+[deps]
+
+source_file="res://assets/sound/honk2.wav"
+dest_files=[ "res://.import/honk2.wav-ecdf6839c6b046ffea4c0a93f7ede1ac.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

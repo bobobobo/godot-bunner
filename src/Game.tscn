@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/level/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/gameover.png" type="Texture" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://assets/sprites/title.png" type="Texture" id=8]
 [ext_resource path="res://src/TitleScreen.gd" type="Script" id=9]
 [ext_resource path="res://src/level/Level.gd" type="Script" id=10]
+[ext_resource path="res://assets/sound/theme.ogg" type="AudioStream" id=11]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ) ],
 "loop": true,
@@ -19,7 +20,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 20, 400 )
 
 [node name="Game" type="Node2D"]
@@ -35,7 +36,7 @@ centered = false
 
 [node name="StartSprite" type="AnimatedSprite" parent="TitleScreen"]
 position = Vector2( 240, 578.789 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 
 [node name="Level" type="Node2D" parent="."]
 script = ExtResource( 10 )
@@ -46,11 +47,11 @@ collision_mask = 0
 
 [node name="LeftWall" type="CollisionShape2D" parent="Level/Walls"]
 position = Vector2( -20, 400 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="RighWall" type="CollisionShape2D" parent="Level/Walls"]
 position = Vector2( 500, 400 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Rows" type="Node2D" parent="Level"]
 
@@ -81,6 +82,10 @@ z_index = 6
 texture = ExtResource( 2 )
 centered = false
 script = ExtResource( 4 )
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 11 )
 [connection signal="game_started" from="TitleScreen" to="." method="_on_TitleScreen_game_started"]
 [connection signal="game_over" from="Level" to="." method="_on_Level_game_over"]
 [connection signal="game_restart" from="GameOver" to="." method="_on_GameOver_game_restart"]

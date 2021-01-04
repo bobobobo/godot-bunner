@@ -17,6 +17,7 @@ animations = [ {
 
 [node name="Rail" instance=ExtResource( 4 )]
 script = ExtResource( 6 )
+sound = ""
 
 [node name="Sprite" parent="." index="1"]
 frames = SubResource( 1 )

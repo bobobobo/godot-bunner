@@ -27,6 +27,7 @@ animations = [ {
 } ]
 
 [node name="Dirt" instance=ExtResource( 11 )]
+sound = "dirt"
 
-[node name="Sprite" parent="." index="0"]
+[node name="Sprite" parent="." index="1"]
 frames = SubResource( 1 )

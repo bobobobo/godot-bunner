@@ -19,6 +19,7 @@ animations = [ {
 
 [node name="Road" instance=ExtResource( 5 )]
 script = ExtResource( 8 )
+env_sound = "traffic"
 
 [node name="Sprite" parent="." index="1"]
 frames = SubResource( 1 )

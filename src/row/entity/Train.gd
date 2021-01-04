@@ -5,6 +5,8 @@ var velocity
 
 func _ready():
     $Sprite.set_animation(str(randi()%3))
+    SoundEffectPlayer.play("bell")
+    SoundEffectPlayer.play("train")
     if velocity < 0:
         $Sprite.set_frame(0)
     else:

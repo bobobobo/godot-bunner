@@ -2,6 +2,7 @@ extends StateMachine.State
 
 func _on_enter(_previous):
     target.sprite.set_animation("splat")
+    SoundEffectPlayer.play("splat")
     _set_direction_frame(target.direction)
     target.trigger_death()
 

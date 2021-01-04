@@ -25,6 +25,7 @@ func _physics_process(delta):
 
     
 func _on_Log_area_entered(area):
+    SoundEffectPlayer.play("log")
     entities.append(area)
 
 func _on_Log_area_exited(area):

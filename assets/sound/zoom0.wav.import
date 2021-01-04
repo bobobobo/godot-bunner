@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/zoom0.wav-e7eae4b493c9f84feeee85f6f14b44dc.sample"
+
+[deps]
+
+source_file="res://assets/sound/zoom0.wav"
+dest_files=[ "res://.import/zoom0.wav-e7eae4b493c9f84feeee85f6f14b44dc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

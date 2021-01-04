@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/traffic0.ogg-93b7b582997715a0648c10612071a12c.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/traffic0.ogg"
+dest_files=[ "res://.import/traffic0.ogg-93b7b582997715a0648c10612071a12c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

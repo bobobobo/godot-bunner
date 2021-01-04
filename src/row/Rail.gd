@@ -4,6 +4,9 @@ const Train = preload("res://src/row/entity/Train.tscn")
 const VELOCITIES = [-20, 20]
 onready var trains = $Trains
 
+func _ready():
+    sound = "grass"
+
 func _process(_delta):
     if self.type == 1 and trains.get_children().size() == 0 and randf() < 0.01 and position.y > 0:
         var velocity = VELOCITIES[randi() % VELOCITIES.size()]

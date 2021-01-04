@@ -94,11 +94,36 @@ func _create_state(state_class):
 func _generate_rows():
     while active_state != null and y>=-40:
         var row = active_state.get_row()
+        if player != null:
+            row.player = player
         row.position.y = y
         y -= 40
         $Rows.add_child(row)
         $Rows.move_child(row, 0)
         last_added_row = row
+    
+    play_env_sound()
+
+func play_env_sound():
+    var env_sounds = {
+        "traffic": 0,
+        "river": 0
+    }
+    for row in $Rows.get_children():
+        if row.env_sound != null and row.env_sound != "" and row.env_sound in env_sounds:
+            var volume = env_sounds[row.env_sound]
+            if player != null:
+                volume = volume + (16 / max(16, abs(row.position.y - player.position.y)))
+            else:
+                volume = 0
+            env_sounds[row.env_sound] = volume
+    for key in env_sounds.keys():
+        var volume = min(0.4, env_sounds[key])
+        if volume > 0:
+            SoundEffectPlayer.play_singleton(key, lerp(-20, -10, volume))
+        else:
+            SoundEffectPlayer.stop_singleton(key)
+
 
 func _physics_process(delta):
     if player != null:

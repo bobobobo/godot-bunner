@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/river1.ogg-656aa338d2b3825c98fbe6cb9d13b5f2.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/river1.ogg"
+dest_files=[ "res://.import/river1.ogg-656aa338d2b3825c98fbe6cb9d13b5f2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
